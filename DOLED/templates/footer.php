@@ -1,16 +1,25 @@
 <footer>
 
-  
-<link rel="stylesheet" type="text/css" href="css/main.css">
+
+  <link rel="stylesheet" type="text/css" href="css/main.css">
 
 
   <div class="footer-content">
-    <div class="footer-section">
+    <div class="footer-section" id="map-link" href="#">
       <h3>ADRESSE</h3>
       <p>Résidence INES</p>
       <p>Hay Qods</p>
       <p>Benslimane</p>
     </div>
+
+    <script>
+      document.getElementById('map-link').addEventListener('click', function (event) {
+        event.preventDefault();
+        var googleMapsUrl = 'https://www.google.com/maps?q=Résidence+INES,+Hay+Qods,+Benslimane';
+        window.location.href = googleMapsUrl;
+      });
+    </script>
+
     <div class="footer-section">
       <h3>CONTACT</h3>
       <p>06 61 21 50 48</p>
@@ -20,11 +29,11 @@
       <h3>HORAIRES</h3>
       <p>Lundi - Samedi: 08h30 - 13h00</p>
       <p>14h00 18h00</p>
-      </div>
+    </div>
   </div>
-    
 
-  
+
+
   <div class="footer-nav">
     <h3>NAVIGATION</h3>
     <nav>
