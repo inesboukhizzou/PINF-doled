@@ -18,7 +18,10 @@ echo "<?xml version=\"1.0\" encoding=\"utf-8\" ?>";
 	<title>DOLED</title>
 	<link rel="stylesheet" href="css/main.css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="ressources/fontawesome-free-6.5.1-web/js/all.min.js"></script>
+	<script src="https://kit.fontawesome.com/c1a715329e.js" crossorigin="anonymous"></script>
+	<!-- à utiliser sur le serveur local
+		<script src="ressources/fontawesome-free-6.5.1-web/js/all.min.js"></script>
+	-->
 
 </head>
 
