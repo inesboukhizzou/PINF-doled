@@ -72,9 +72,9 @@ header nav form .search-data {
 
 header nav form button {
   padding: 0 15px;
-  color: #FACC39;
+  color: #000;
   font-size: 17px;
-  background: #000;
+  background: none;
   border: none;
   border-radius: 2px;
   border-top-right-radius: 12px;
@@ -83,9 +83,7 @@ header nav form button {
   transition: all 0.3s ease;
 }
 
-header nav form button:hover {
-  background: #FACC39;
-}
+
 
 header nav .menu-icon,
 header nav .cancel-icon,
