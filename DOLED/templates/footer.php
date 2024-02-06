@@ -16,7 +16,7 @@
       document.getElementById('map-link').addEventListener('click', function (event) {
         event.preventDefault();
         var googleMapsUrl = 'https://www.google.com/maps?q=Résidence+INES,+Hay+Qods,+Benslimane';
-        window.location.href = googleMapsUrl;
+        window.open(googleMapsUrl, '_blank');
       });
     </script>
 
