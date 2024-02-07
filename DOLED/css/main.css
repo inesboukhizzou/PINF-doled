@@ -326,3 +326,116 @@ footer .footer-about {
     width: 100%;
   }
 }
+
+/*Homepage*/
+
+
+/* Sous-titre */
+#sous-titre {
+    font-size: 20px;
+}
+
+/* Boutons et liens */
+.actions {
+    margin-top: 2rem;
+}
+
+.btn, .liensInter {
+    display: inline-block;
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    border: none;
+    cursor: pointer;
+}
+
+.liensInter {
+    padding: 10px 20px;
+    color: rgb(46, 44, 44);
+    text-decoration: underline;
+}
+
+/* Titres H1 */
+.titresH1 {
+    font-weight: 600;
+    font-size: 40px;
+}
+
+/* Container principal */
+.background-container {
+    display: block; /* Changé de flex à block */
+    padding: 3rem;
+    background-image: url('Vector\ 1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.content {
+    margin-right: 2rem;
+}
+
+.image-homepage{
+    
+}
+
+#image-magasin {
+    width: 700px;
+    height: 500px;
+    object-fit: contain;
+    max-height: 50%;
+    border-radius: 2%;
+}
+
+/* Container des produits */
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Ajuste pour 3 colonnes */
+    gap: 1rem;
+    margin-top: 2rem; /* Ajoute de l'espace au-dessus */
+    padding: 0 1rem; /* Ajoute un padding horizontal si nécessaire */
+}
+
+/* Produit individuel */
+.product {
+    background-color: white;
+    padding: 0.5rem; /* Réduit le padding pour rétrécir le cadre */
+    margin: 0.5rem; /* Optionnel: ajoute une marge externe si nécessaire */
+    border-radius: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Ajoute une ombre pour la profondeur */
+    transition: 0.3s; /* Pour un effet de survol */
+    max-width: 200px; /* Définit une largeur maximale pour les produits */
+}
+
+.product img {
+    width: 100%; /* Assure que l'image prend la largeur complète du cadre */
+    max-height: 150px; /* Définit une hauteur maximale pour les images */
+    object-fit: contain; /* S'assure que l'image s'adapte bien sans être déformée */
+    margin-bottom: 0.5rem; /* Ajoute un espace en dessous de l'image */
+}
+
+.product-description {
+    text-align: center;
+}
+
+.product-description p {
+    margin: 0.5rem 0; /* Réduit l'espace entre les paragraphes */
+}
+
+/* Bouton dans la description du produit */
+.product .btn {
+    padding: 5px 10px; /* Réduit le padding du bouton */
+    font-size: 0.8rem; /* Réduit la taille du texte du bouton si nécessaire */
+}
+
+
+.product:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Effet de survol */
+}
