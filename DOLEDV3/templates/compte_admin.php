@@ -10,11 +10,14 @@ $resultats = listeEmployes(); ?>
     <div>
         <h3>Gestion des comptes</h3>
         <br><br>
+
+        <input type="button" class="btn5" value="Ajouter un employé"
+            onclick="location.href='index.php?view=modifier_coordonnees&id=-1'">
         <?php
         foreach ($resultats as $unResultat) {
 
             echo "<div class='profil'>";
-            echo "   <img src='ressources/profil.png' class='photo'>";
+            echo "   <a href='index.php?view=modifier_coordonnees&id=" . $unResultat["id_user"] . "'> <img src='ressources/profil.png' class='photo' ></a>";
             echo "   <p class='identite'><strong>" . $unResultat["nom"] . " " . $unResultat["prenom"] . "</strong></p>";
             echo "   <p class='role'>" . $unResultat["nom_role"] . "</p>";
             echo "</div>";
@@ -35,5 +38,14 @@ $resultats = listeEmployes(); ?>
             <input type="button" class="btn2" value="Gestion des stocks et fidélités"
                 onclick="location.href='index.php?view=compte_employe'">
         </div>
+        </br></br>
     </div>
+
+
 </div>
+
+
+<form action="controleur.php" method="post">
+    <input type="hidden" name="action" value="Logout">
+    <button class="btn1" type="submit">Déconnexion</button>
+</form>
