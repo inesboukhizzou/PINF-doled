@@ -4,10 +4,52 @@ include_once "libs/maLibSQL.pdo.php";
 include_once "libs/maLibSecurisation.php";
 include_once "libs/modele.php";
 
-echo "Modifier les coordonnées de l'employé";
-echo "</br></br></br>";
-// Vérifiez si l'identifiant de l'employé est spécifié dans l'URL
-if (isset($_GET['id'])) {
+if ($_GET['id'] == -1) { ?>
+    <div class="ensemble">
+        <?php
+        echo "<h1 class='log'>Ajouter un employé</h1>";
+        echo "</br></br></br>";
+        ?>
+        <form action="controleur.php?id=-1" method="POST">
+            <div class="flex-container">
+                <div class="gauche1">
+                    <div class="log"><label for="nom">Nom </label><br>
+                        <input type="text" class="champText4" name="nom" placeholder="Nom" />
+                    </div><br />
+                    <div class="log"><label for="prenom">Prénom </label><br>
+                        <input type="text" class="champText4" name="prenom" placeholder="Prénom" />
+                    </div><br />
+                    <div class="log"><label for="adresse">Adresse </label><br>
+                        <input type="text" class="champText4" name="adresse" placeholder="Adresse" />
+                    </div><br />
+                    <div class="log"><label for="mail">Mail </label><br>
+                        <input type="text" class="champText4" name="mail" placeholder="Mail" />
+                    </div><br />
+                </div>
+                <div class="droite1">
+                    <div class="log"><label for="num_telephone">Numéro de téléphone </label><br>
+                        <input type="text" class="champText4" name="num_telephone" placeholder="Numéro de téléphone" />
+                    </div><br />
+                    <div class="log"><label for="points_fidelite">Points de fidélité </label><br>
+                        <input type="text" class="champText4" name="points_fidelite" placeholder="Points de fidélité" />
+                    </div><br />
+                    <div class="log"><label for="mdp">Mot de passe </label><br>
+                        <input type="password" class="champText4" name="mdp" placeholder="Mot de passe" />
+                    </div><br />
+                    <div class="log"><label for="mdp2">Confirmer le mot de passe </label><br>
+                        <input type="password" class="champText4" name="mdp2" placeholder="Confirmer le mot de passe" />
+                    </div><br />
+                </div>
+            </div>
+            <input type="submit" id="btn4" value="Ajouter un employe" name="action" />
+    </div>
+    </form>
+    <?php
+} else {
+
+
+    echo "<p class='log'>Modifier les coordonnées de l'employé</p>";
+    echo "</br></br></br>";
     // Récupérez l'identifiant de l'employé à partir de l'URL
     $idEmploye = $_GET['id'];
 
@@ -28,33 +70,41 @@ if (isset($_GET['id'])) {
 
     // Affichez les informations de l'employé dans un formulaire de modification
     ?>
-    <form action="controleur.php" method="POST">
+    <form action="controleur.php?id=<?php echo $idEmploye; ?>" method="POST">
         <div class="log"><label for="nom">Nom </label><br>
-            <input type="text" class="champText3" name="nom" placeholder="Nom" value="<?php echo $nom ?>" />
+            <input type="text" class="champText4" name="nom" placeholder="Nom" value="<?php echo $nom ?>" />
         </div><br />
         <div class="log"><label for="prenom">Prénom </label><br>
-            <input type="text" class="champText3" name="prenom" placeholder="Prénom" value="<?php echo $prenom ?>" />
+            <input type="text" class="champText4" name="prenom" placeholder="Prénom" value="<?php echo $prenom ?>" />
         </div><br />
         <div class="log"><label for="adresse">Adresse </label><br>
-            <input type="text" class="champText3" name="adresse" placeholder="Adresse" value="<?php echo $adresse ?>" />
+            <input type="text" class="champText4" name="adresse" placeholder="Adresse" value="<?php echo $adresse ?>" />
         </div><br />
         <div class="log"><label for="mail">Mail </label><br>
-            <input type="text" class="champText3" name="mail" placeholder="Mail" value="<?php echo $mail ?>" />
+            <input type="text" class="champText4" name="mail" placeholder="Mail" value="<?php echo $mail ?>" />
         </div><br />
         <div class="log"><label for="num_telephone">Numéro de téléphone </label><br>
-            <input type="text" class="champText3" name="num_telephone" placeholder="Numéro de téléphone"
+            <input type="text" class="champText4" name="num_telephone" placeholder="Numéro de téléphone"
                 value="<?php echo $num_telephone ?>" />
         </div><br />
         <div class="log"><label for="points_fidelite">Points de fidélité </label><br>
-            <input type="text" class="champText3" name="points_fidelite" placeholder="Points de fidélité"
+            <input type="text" class="champText4" name="points_fidelite" placeholder="Points de fidélité"
                 value="<?php echo $points_fidelite ?>" />
         </div><br />
+        <div class="log"><label for="mdp">Mot de passe </label><br>
+            <input type="password" class="champText4" name="mdp" placeholder="Mot de passe" />
+        </div><br />
+        <input type="submit" name="action" value="Valider la modification" class="btn4" />
     </form>
 
 
     <?php
-} else {
-    // Si aucun identifiant d'employé n'est spécifié dans l'URL, affichez un message d'erreur
-    echo "Aucun identifiant d'employé spécifié.";
+
 }
 ?>
+
+<?php if (isset($_GET['msg'])) {
+    // Récupérer la valeur du paramètre 'msg'
+    $message = urldecode($_GET['msg']); // Décoder les caractères spéciaux dans le message
+    echo '<div id="message">' . $message . '</div>';
+} ?>
