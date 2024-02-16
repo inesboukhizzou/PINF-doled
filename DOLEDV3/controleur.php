@@ -227,6 +227,46 @@ if ($action = valider("action")) {
 			break;
 
 			
+
+		case "Valider la modification":
+			$nom = valider("nom");
+			$prenom = valider("prenom");
+			$mdp = valider("mdp");
+			$mail = valider("mail");
+			$num = valider("num_telephone");
+			$adresse = valider("adresse");
+			$points_fidelite = valider("points_fidelite");
+			$id = valider("id");
+			modifier_user($id, $nom, $prenom, $adresse, $mail, $num, $points_fidelite, $mdp);
+			break;
+
+		case "Ajouter un employe":
+			$nom = valider("nom");
+			$prenom = valider("prenom");
+			$adresse = valider("adresse");
+			$mail = valider("mail");
+			$num = valider("num_telephone");
+			$points = valider("points_fidelite");
+			$mdp = valider("mdp");
+			$mdp2 = valider("mdp2");
+			if ($mdp != $mdp2) {
+				$qs = array("msg" => " Les mots de passe ne correspondent pas", "view" => "modifier_coordonnees", "id" => $id);
+				break;
+			}
+			if (!verifMdp($mdp)) {
+				$qs = array("msg" => " Le mot de passe doit contenir au moins 8 caractères dont une majuscule, une minuscule, un chiffre et un caractère spécial", "view" => "modifier_coordonnees", "id" => $id);
+				break;
+			}
+			if (empty($nom) || empty($prenom) || empty($mail) || empty($num) || empty($adresse)) {
+				$qs = array("msg" => " Veuillez remplir tous les champs obligatoires", "view" => "modifier_coordonnees", "id" => $id);
+				break;
+			} else {
+				creer_employe($nom, $prenom, $adresse, $mail, $num, $points, $mdp);
+				$qs = array("msg" => "Ajout réalisé avec succès !", "view" => "compte_admin");
+				break;
+			}
+
+
 			
 	}
 
