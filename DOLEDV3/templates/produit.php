@@ -8,7 +8,6 @@ if (isset($_GET['id'])) {
     if ($product) {
         $productDetails = $product[0];
         
-        
         // Affichage des détails du produit
         echo '<div class="product-container">';
         echo '<div class="product-image-container">';
@@ -35,16 +34,19 @@ if (isset($_GET['id'])) {
         $productsCat = getProduitByCat($idCat);
         if ($productsCat) {
             echo '<div class="product-container-carousell">';
-            echo '<i class="fas fa-arrow-left" id="scroll-left"></i>';
+            $count = 0; // Initialisation du compteur
             foreach ($productsCat as $productCatDetails) {
-                echo '<div class="product-card-carousell">';
-                echo '<img class="product-image-carousell" src="'.htmlspecialchars($productCatDetails['image_prod']).'" alt="Image du produit">';
-                echo '<div class="product-details">';
-                echo '<h4 class="product-serial-number">' . htmlspecialchars($productCatDetails['designation']) . '</h4>';
-                echo '</div>';
-                echo '</div>';
+                if ($productCatDetails['id_produit'] != $product_id) {
+                    echo '<div class="product-card-carousell">';
+                    echo '<img class="product-image-carousell" src="'.htmlspecialchars($productCatDetails['image_prod']).'" alt="Image du produit">';
+                    echo '<div class="product-details">';
+                    echo '<h4 class="product-serial-number">' . htmlspecialchars($productCatDetails['designation']) . '</h4>';
+                    echo '</div>';
+                    echo '</div>';
+                    $count++; // Incrémenter le compteur
+                    if ($count >= 8) break; // Sortir de la boucle si 8 produits ont été affichés
+                }
             }
-            echo '<i class="fas fa-chevron-right" id="scroll-right"></i>';
             echo '</div>';
         }
     } else {
@@ -54,33 +56,15 @@ if (isset($_GET['id'])) {
     echo '<p>Identifiant du produit non spécifié.</p>';
 }
 ?>
-<!-- Ajoutez FontAwesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
 <!-- JavaScript pour le carrousel -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const container = document.querySelector('.product-container-carousell');
-    const btnLeft = document.getElementById('scroll-left');
-    const btnRight = document.getElementById('scroll-right');
 
     // Supposons que tous les éléments du carrousel ont la même largeur et des marges uniformes
     const slideWidth = document.querySelector('.product-card-carousell').offsetWidth;
     const slideMarginRight = parseInt(window.getComputedStyle(document.querySelector('.product-card-carousell')).marginRight);
 
     console.log('slideWidth:', slideWidth); // Vérifiez la valeur de slideWidth
-
-    btnLeft.addEventListener('click', function() {
-        console.log('Left button clicked'); // Vérifiez si le bouton gauche est cliqué
-        container.scrollLeft -= slideWidth + slideMarginRight;
-    });
-
-    btnRight.addEventListener('click', function() {
-        console.log('Right button clicked'); // Vérifiez si le bouton droit est cliqué
-        container.scrollLeft += slideWidth + slideMarginRight;
-    });
 });
-
-
 </script>
-
