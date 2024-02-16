@@ -1010,6 +1010,12 @@ footer .footer-about {
   gap: 20px; /* Cela crée un espace entre les éléments du carrousel */
 }
 
+.product-card-carousell:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
 
 
 
