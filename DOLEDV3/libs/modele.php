@@ -206,6 +206,12 @@ function getCategorieMereNom($idCategorie){
     return parcoursRs($result);
 }
 
+function getCategorieMereImage($idCategorie){
+    $sql = "SELECT image_cat FROM categorie WHERE id_cat = '$idCategorie'";
+    $result = SQLSelect($sql);
+    return parcoursRs($result);
+}
+
 function getSousCategorie($idCategorie){
     $sql = "SELECT id_cat, nom_cat, descriptif_cat, image_cat FROM categorie WHERE sous_cat = '$idCategorie'";
     $result = SQLSelect($sql);
