@@ -249,6 +249,7 @@ if ($action = valider("action")) {
 			$points = valider("points_fidelite");
 			$mdp = valider("mdp");
 			$mdp2 = valider("mdp2");
+			$id = valider("id");
 			if ($mdp != $mdp2) {
 				$qs = array("msg" => " Les mots de passe ne correspondent pas", "view" => "modifier_coordonnees", "id" => $id);
 				break;
@@ -265,6 +266,7 @@ if ($action = valider("action")) {
 				$qs = array("msg" => "Ajout réalisé avec succès !", "view" => "compte_admin");
 				break;
 			}
+
 
 
 			
