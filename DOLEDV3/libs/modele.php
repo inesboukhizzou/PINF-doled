@@ -230,5 +230,25 @@ function getProduitByCat($idCategorie){
     return parcoursRs($result);
 }
 
+function infoUser($id)
+{
+    $sql = "SELECT nom, prenom, adresse,mail, num_telephone, points_fidelite, roles.nom_role,users.id_role FROM users JOIN roles ON users.id_role = roles.id_role
+    WHERE id_user = '$id'";
+    return parcoursRs(SQLSelect($sql));
+}
+
+function modifier_user($id, $nom, $prenom, $adresse, $mail, $num, $points_fidelite, $mdp)
+{
+    $mdp = password_hash($mdp, PASSWORD_DEFAULT);
+    $sql = "UPDATE users SET nom = '$nom', prenom = '$prenom', adresse = '$adresse', mail = '$mail', num_telephone = '$num', points_fidelite='$points_fidelite', passwd='$mdp' WHERE id_user = '$id'";
+    SQLUpdate($sql);
+}
+function creer_employe($nom, $prenom, $adresse, $mail, $num, $points, $mdp)
+{
+    $mdp = password_hash($mdp, PASSWORD_DEFAULT);
+    $sql = "INSERT INTO users (nom, prenom,adresse,mail,num_telephone,points_fidelite, passwd, id_role)
+          VALUES ('$nom','$prenom','$adresse','$mail','$num','$points', '$mdp',1)";
+    SQLInsert($sql);
+}
 ?>
 
