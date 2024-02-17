@@ -37,7 +37,7 @@ if (isset($_GET['id'])) {
             $count = 0; // Initialisation du compteur
             foreach ($productsCat as $productCatDetails) {
                 if ($productCatDetails['id_produit'] != $product_id) {
-                    echo '<div class="product-card-carousell">';
+                   echo '<div class="product-card-carousell" onclick="window.location=\'index.php?view=produit&id=' . $productCatDetails['id_produit']. '\'">';
                     echo '<img class="product-image-carousell" src="'.htmlspecialchars($productCatDetails['image_prod']).'" alt="Image du produit">';
                     echo '<div class="product-details">';
                     echo '<h4 class="product-serial-number">' . htmlspecialchars($productCatDetails['designation']) . '</h4>';
