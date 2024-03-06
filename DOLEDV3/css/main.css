@@ -1134,3 +1134,46 @@ footer .footer-about {
   width: 50%;
 }
 
+/* PAGNINATION POUR PRODUITS.PHP */
+
+.pagination {
+  text-align: center; 
+  margin: 20px 0; 
+  display: flex;
+  justify-content: center; 
+  list-style: none; 
+  padding: 0; 
+}
+
+.pagination a {
+  margin: 0 5px;
+  padding: 5px 10px; 
+  text-decoration: none;
+  color: #333; 
+  background-color: #fff; 
+  border: 1px solid #ddd;
+  border-radius: 5px; 
+  transition: background-color 0.3s;
+}
+
+.pagination a:hover {
+  background-color: #f0f0f0; 
+}
+
+.pagination a.active {
+  background-color: #ffcc00; 
+  color: #2e2c2c; 
+  border: 1px solid #ffcc00; 
+}
+
+/* petit style pour les boutons désactivés */
+.pagination a.disabled {
+  color: #ccc;
+  cursor: not-allowed;
+  background-color: #f9f9f9;
+  border-color: #ccc;
+}
+
+/*PAGINATION FIN*/
+
+
