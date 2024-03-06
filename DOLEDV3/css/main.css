@@ -1033,6 +1033,53 @@ footer .footer-about {
 }
 
 
+/* pour les tablettes */
+@media (max-width: 768px) {
+  .deco-cat{
+    font-size: medium;
+  }
+
+  .box-cat {
+      width: auto;
+      padding: 0 10px;
+      margin: 1rem; 
+  }
+
+  .image-cat {
+      width: 200px;
+      height: 200px;
+  }
+
+  .nom-cat {
+      font-size: smaller; /* Légère réduction de la taille de la police */
+  }
+}
+
+/* pour les écrans de téléphones mobiles */
+@media (max-width: 480px) {
+ 
+  .boxes-cat {
+      margin: 2rem 1rem; /* Adapter les marges extérieures pour les petits écrans */
+  }
+
+  .box-cat {
+      width: 45%; /* Ajustement pour que deux éléments s'affichent côte à côte sur des écrans très étroits */
+      margin: 0.5rem; /* Marges réduites */
+  }
+
+  .image-cat {
+      width: 150px; /* Taille d'image réduite davantage pour les petits écrans */
+      height: 150px; /* Maintenir la proportion */
+  }
+
+  .nom-cat {
+      font-size: 10px; 
+  }
+}
+
+
+
+
 
 /* produit php */
 /* Styles globaux */
