@@ -250,5 +250,31 @@ function creer_employe($nom, $prenom, $adresse, $mail, $num, $points, $mdp)
           VALUES ('$nom','$prenom','$adresse','$mail','$num','$points', '$mdp',1)";
     SQLInsert($sql);
 }
+
+// pagnination début 
+function getProduitsPagines($limit = 24, $offset = 0) {
+    $sql = "SELECT id_produit, designation, image_prod, prix_unitaire FROM produit LIMIT $limit OFFSET $offset";
+    return parcoursRs(SQLSelect($sql));
+}
+
+function getTotalProduits() {
+    $sql = "SELECT COUNT(*) as total FROM produit";
+    $result = SQLGetChamp($sql);
+    return $result;
+}
+
+
+
+function getTotalProduitsBySousCat($idSousCategorie) {
+    $sql = "SELECT COUNT(*) as total FROM produit WHERE id_cat = '$idSousCategorie'";
+    return SQLGetChamp($sql);
+}
+
+
+function getProduitsBySousCatPaginated($idSousCategorie, $limit, $offset) {
+    $sql = "SELECT * FROM produit WHERE id_cat = '$idSousCategorie' LIMIT $offset, $limit";
+    $res = SQLSelect($sql);
+    return parcoursRs($res);
+}
 ?>
 
