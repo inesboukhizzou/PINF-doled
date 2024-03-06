@@ -679,7 +679,7 @@ footer .footer-about {
   margin-left: 10px;
 }
 
-/* TEST CODE INES */
+/* homepage */
 
 .homepageHTML{
   width: 100%;
@@ -764,6 +764,104 @@ footer .footer-about {
 
 .rouge {
   color: red;
+}
+
+
+/* résponsif homepage*/
+@media (max-width: 1406px){
+  .background-container {
+    flex-direction: column; 
+    align-items: center;
+}
+
+  #image-magasin, .content {
+      max-width: 100%; 
+      text-align: center; 
+  }
+
+  #image-magasin {
+      margin-top: 20px; 
+  }
+
+  /* pour les cartes de produits */
+  .product-card {
+    width: 25%; /* Ajustez la largeur pour les tablettes */
+    margin: 1rem; /* Réduction de la marge */
+  }
+
+  .product-image {
+    width: 70%; /* Ajustez la taille de l'image */
+  }
+
+  .product-name, .product-price, .product-availability {
+    font-size: 0.9rem; /* Ajustez la taille du texte */
+  }
+
+  .product-details-link {
+    padding: 0.4rem 0.8rem; /* Ajustez le padding du lien */
+    font-size: 0.8rem; /* Ajustez la taille du texte du lien */
+  }
+}
+
+@media (max-width: 1068px) { 
+  .background-container {
+      flex-direction: column; 
+      align-items: center;
+  }
+
+  #image-magasin, .content {
+      max-width: 100%; 
+      text-align: center; 
+  }
+
+  #image-magasin {
+      margin-top: 20px; 
+  }
+
+  /* pour les cartes de produits */
+  .product-card {
+    width: 45%; /* Ajustez la largeur pour les tablettes */
+    margin: 1rem; /* Réduction de la marge */
+  }
+
+  .product-image {
+    width: 90%; /* Ajustez la taille de l'image */
+  }
+
+  .product-name, .product-price, .product-availability {
+    font-size: 0.9rem; /* Ajustez la taille du texte */
+  }
+
+  .product-details-link {
+    padding: 0.4rem 0.8rem; /* Ajustez le padding du lien */
+    font-size: 0.8rem; /* Ajustez la taille du texte du lien */
+  }
+
+}
+
+/* Media Query pour les écrans très petits (ex : téléphones en mode portrait) */
+@media (max-width: 767px) {
+  .product-card {
+    width: 100%; /* Cartes occupent toute la largeur pour les mobiles */
+    margin: 1rem 0; /* Ajustement des marges verticales uniquement */
+  }
+
+  .product-image {
+    width: 100%; /* Images occupent toute la largeur de la carte */
+  }
+
+  .product-name, .product-price, .product-availability {
+    font-size: 0.8rem; /* Réduction supplémentaire de la taille du texte */
+  }
+
+  .product-details-link {
+    padding: 0.3rem 0.6rem; /* Réduction supplémentaire du padding */
+    font-size: 0.7rem; /* Réduction supplémentaire de la taille du texte du lien */
+  }
+
+  .products-hp {
+    padding: 2rem 1rem; /* Ajustement du padding global pour les produits */
+  }
 }
 
 /* Produits */
