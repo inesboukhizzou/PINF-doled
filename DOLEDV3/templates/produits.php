@@ -1,24 +1,33 @@
-
 <?php
 
 include_once 'libs/modele.php';
 include_once 'libs/maLibSecurisation.php';
-$products = getProduits();
 
-// var_dump($products); // Cela devrait afficher les résultats ou false si la requête a échoué
+$limit = 24; // nb de produits max par page 
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$offset = ($page - 1) * $limit;
 
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
+// si on veut accéder aux produits appartenant à une catégorie
+if (isset($_GET['id'])) {
+    $categorie_id = $_GET['id'];
+    $totalProduits = getTotalProduitsBySousCat($categorie_id); 
+    $totalPages = ceil($totalProduits / $limit);
+    $products = getProduitsBySousCatPaginated($categorie_id, $limit, $offset); 
+} 
+// si on veut accéder aux produits mais sans passer par les catégories
+else {
+    $totalProduits = getTotalProduits(); 
+    $totalPages = ceil($totalProduits / $limit);
+    $products = getProduitsPagines($limit, $offset); 
+}
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 ?>
+
 <div class="products-hp">
-<?php foreach ($products as $index => $product): ?>
+<?php foreach ($products as $product): ?>
     <?php
-        // Limiter l'affichage à 9 produits
-        if ($index >= 12) {
-            break;
-        }
         $quantiteProd = getQuantite($product['id_produit']);
         $quantiteProdMin = getQuantiteMin($product['id_produit']);
         if ($quantiteProd == 0) {
@@ -39,7 +48,16 @@ $products = getProduits();
             <p class="product-price"><?php echo htmlspecialchars($product['prix_unitaire']); ?> dhs</p>
             <p class="product-availability <?php echo $classe; ?>"><?php echo $affichage; ?></p>
             <a href="index.php?view=produit&id=<?php echo $product['id_produit']; ?>" class="product-details-link">Voir les détails</a>
-        </div> <!-- .product-details -->
-    </div> <!-- .product-card -->
+        </div> 
+    </div> 
 <?php endforeach; ?>
-</div> <!-- .products-hp -->
+</div>
+
+<div class="pagination" style="text-align: center;">
+    <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+        <a href="index.php?view=produits&page=<?php echo $i; ?><?php echo isset($categorie_id) ? "&id=$categorie_id" : ''; ?>" class="<?php echo $page == $i ? 'active' : ''; ?>">
+            <?php echo $i; ?>
+        </a>
+    <?php endfor; ?>
+</div>
+
