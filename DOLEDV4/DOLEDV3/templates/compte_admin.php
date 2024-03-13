@@ -20,6 +20,7 @@ $resultats = listeEmployes(); ?>
                         <div class="details-employe">
                             <p class="nom-employe"><?= htmlspecialchars($unResultat["nom"]) . " " . htmlspecialchars($unResultat["prenom"]) ?></p>
                             <p class="role-employe"><?= htmlspecialchars($unResultat["nom_role"]) ?></p>
+                             <input type='button' class='btn3' value='Supprimer' onclick='supprimerEmploye($unResultat["id_user"])'>
                         </div>
                     </div>
                     <?php } ?>
@@ -49,3 +50,24 @@ $resultats = listeEmployes(); ?>
     <input type="hidden" name="action" value="Logout">
     <button class="btn1" type="submit">Déconnexion</button>
 </form>
+
+
+
+
+<script>
+    function supprimerEmploye(idUser) {
+        // Effectuer une requête AJAX pour supprimer le produit
+        $.ajax({
+            url: 'controleur.php?action=supprimerEmploye&id_user=' + idUser,
+            method: 'POST',
+            success: function (response) {
+                // Faire quelque chose après la suppression (mettre à jour l'interface utilisateur, etc.)
+                console.log(response);
+                location.reload();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+</script>
