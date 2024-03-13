@@ -10,7 +10,8 @@
 		<!-- formulaire d'inscription -->
 		<form action="controleur.php" method="POST">
 			<div id="coord">
-				<div class="log"><label for="nom">Nom <span class="rouge">*</span></label><br>
+				<div class="log">
+					<label for="nom">Nom <span class="rouge">*</span></label><br>
 					<input type="text" class="champText1" name="nom" placeholder="Nom" value="" />
 				</div><br />
 				<div class="log"><label for="prenom">Prénom <span class="rouge">*</span></label><br>
@@ -47,7 +48,5 @@
 		$message = urldecode($_GET['msg']); // Décoder les caractères spéciaux dans le message
 		echo '<div id="message">' . $message . '</div>';
 	} ?>
-</div>
-<div id="image">
 </div>
 </div>
