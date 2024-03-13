@@ -49,7 +49,6 @@ $passe = valider("passe", "COOKIE");
             echo '<div id="message">' . $message . '</div>';
         } ?>
     </div>
-    <div id="image">
-    </div>
+
 
 </body>
