@@ -1275,3 +1275,31 @@ footer .footer-about {
   width: 50%;
 }
 
+
+#searchProduit {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 20%;
+}
+
+#urgence {
+  color: red;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* CSS pour réduire la largeur de la première colonne */
+#simpleTable th:first-child,
+#simpleTable td:first-child {
+  width: 50px; /* Vous pouvez ajuster la largeur selon vos besoins */
+  padding: 0%;
+}
+
+#simpleTable input[type="checkbox"] {
+  margin: auto; /* Pour centrer horizontalement */
+  display: block; /* Pour centrer verticalement */
+}
+
