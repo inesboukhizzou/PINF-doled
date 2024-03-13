@@ -279,7 +279,28 @@ if ($action = valider("action")) {
 				$valeur = valider("valeur");
 				modifierFidelite($id, $valeur);
 				break;
-	
+				case "modifierNomPrenom":
+				$id = valider("id");
+				$nom = valider("nom");
+				$prenom = valider("prenom");
+				modifierNom($id, $nom);
+				modifierPrenom($id, $prenom);
+				break;
+			case "modifierMail":
+				$id = valider("id");
+				$mail = valider("mail");
+				modifierMail($id, $mail);
+				break;
+			case "modifierAdresse":
+				$id = valider("id");
+				$adresse = valider("adresse");
+				modifierAdresse($id, $adresse);
+				break;
+			case "modifierNum":
+				$id = valider("id");
+				$num = valider("num");
+				modifierNum($id, $num);
+				break;
 	
 
 
