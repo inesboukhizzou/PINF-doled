@@ -321,5 +321,37 @@ function creer_employe($nom, $prenom, $adresse, $mail, $num, $points, $mdp)
           VALUES ('$nom','$prenom','$adresse','$mail','$num','$points', '$mdp',1)";
     SQLInsert($sql);
 }
+
+// compte client 
+
+function modifierNom($id, $valeur)
+{
+    $sql = "UPDATE users SET nom = '$valeur' WHERE id_user = '$id'";
+    SQLUpdate($sql);
+}
+
+function modifierPrenom($id, $valeur)
+{
+    $sql = "UPDATE users SET prenom = '$valeur' WHERE id_user = '$id'";
+    SQLUpdate($sql);
+}
+
+function modifierMail($id, $valeur)
+{
+    $sql = "UPDATE users SET mail = '$valeur' WHERE id_user = '$id'";
+    SQLUpdate($sql);
+}
+
+function modifierNum($id, $valeur)
+{
+    $sql = "UPDATE users SET num_telephone = '$valeur' WHERE id_user = '$id'";
+    SQLUpdate($sql);
+}
+
+function modifierAdresse($id, $valeur)
+{
+    $sql = "UPDATE users SET adresse = '$valeur' WHERE id_user = '$id'";
+    SQLUpdate($sql);
+}
 ?>
 
