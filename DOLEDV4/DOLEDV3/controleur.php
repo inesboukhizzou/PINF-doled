@@ -267,6 +267,21 @@ if ($action = valider("action")) {
 				break;
 			}
 
+			case "modifier_fidelite":
+			$id = valider("id");
+			$valeur = valider("valeur");
+			//conversion montant en points de fidelité -> 100 Dhs =1 point, à modifier si besoin dans compte employe
+			$total = $valeur + getFidelite($id);
+			modifierFidelite($id, $total);
+			break;
+		case "supprimer_points":
+			$id = valider("id");
+			$valeur = valider("valeur");
+			modifierFidelite($id, $valeur);
+			break;
+
+
+
 
 
 			
