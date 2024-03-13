@@ -233,6 +233,34 @@ h3 {
   width: 100%;
   margin-right: 100px; /* Ajustez la valeur de margin pour contrôler l'espace entre les boutons */
 }
+
+/* additions au style de compte_admin */
+.conteneur-carrousel-employes {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px;
+}
+
+.carte-employe {
+  flex: 0 0 auto;
+  width: 200px; /* Exemple de largeur, ajustez selon vos besoins */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.photo-employe {
+  width: 100%;
+  height: 200px; /* Hauteur fixe pour la photo, ajustez selon vos besoins */
+  object-fit: cover;
+}
+
+.details-employe {
+  padding: 10px;
+}
+
 /* supprimer produit */
 .conteneur-produit {
   display: inline-flex;
