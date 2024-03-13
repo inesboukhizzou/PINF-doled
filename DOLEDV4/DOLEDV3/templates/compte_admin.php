@@ -13,17 +13,17 @@ $resultats = listeEmployes(); ?>
 
         <input type="button" class="btn5" value="Ajouter un employé"
             onclick="location.href='index.php?view=modifier_coordonnees&id=-1'">
-        <?php
-        foreach ($resultats as $unResultat) {
-
-            echo "<div class='profil'>";
-            echo "   <a href='index.php?view=modifier_coordonnees&id=" . $unResultat["id_user"] . "'> <img src='ressources/profil.png' class='photo' ></a>";
-            echo "   <p class='identite'><strong>" . $unResultat["nom"] . " " . $unResultat["prenom"] . "</strong></p>";
-            echo "   <p class='role'>" . $unResultat["nom_role"] . "</p>";
-            echo "</div>";
-
-        }
-        ?>
+        <div class="conteneur-carrousel-employes">
+                    <?php foreach ($resultats as $unResultat) { ?>
+                    <div class="carte-employe" onclick="window.location='index.php?view=modifier_coordonnees&id=<?= $unResultat["id_user"] ?>'">
+                        <img src="ressources/profil.png" alt="Photo de l'employé" class="photo-employe">
+                        <div class="details-employe">
+                            <p class="nom-employe"><?= htmlspecialchars($unResultat["nom"]) . " " . htmlspecialchars($unResultat["prenom"]) ?></p>
+                            <p class="role-employe"><?= htmlspecialchars($unResultat["nom_role"]) ?></p>
+                        </div>
+                    </div>
+                    <?php } ?>
+        </div>
     </div>
 
     <!--gestion du stock-->
