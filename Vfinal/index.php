@@ -44,6 +44,7 @@ Les formulaires de toutes les vues générées enverront leurs données vers la 
 // Liste des vues sensibles
 $vuesSensibles = array("compte_admin");
 $vuesSensibles2 = array("compte_admin", "compte_employe");
+$vuesSensibles3 = array("compte_admin", "compte_employe", "compte_client");
 
 // Vérifier si l'utilisateur est connecté et s'il a un rôle valide
 if(isset($_SESSION['id_pers']) && valider("connecte", "SESSION")) {
@@ -68,6 +69,15 @@ if(isset($_SESSION['id_pers']) && valider("connecte", "SESSION")) {
 		}
 	}
 }
+else {
+	// Si l'utilisateur n'est pas connecté et tente d'accéder à une vue sensible
+	if (in_array($view, $vuesSensibles3)) {
+		// Rediriger vers la page d'accueil
+		header("Location: index.php");
+		exit;
+	}
+}
+
 
 
 	// En fonction de la vue à afficher, on appelle tel ou tel template
